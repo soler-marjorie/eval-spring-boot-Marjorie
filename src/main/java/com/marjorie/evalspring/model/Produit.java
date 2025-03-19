@@ -24,7 +24,7 @@ public class Produit {
 
     @Column(name = "prix", nullable = false)
     @NotNull(message = "Le prix du produit ne doit pas être vide")
-    @DecimalMin(value = "0.0", inclusive = false, message = "Le rix du produit ne doit pas être vide et supèrieur à zéro")
+    @DecimalMin(value = "0.0", inclusive = false, message = "Le prix du produit ne doit pas être vide et supèrieur à zéro")
     private Double price;
 
     /*
