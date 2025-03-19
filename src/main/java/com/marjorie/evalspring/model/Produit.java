@@ -24,8 +24,8 @@ public class Produit {
 
     @Column(name = "prix", nullable = false)
     @NotNull(message = "Le prix du produit ne doit pas être vide")
-    @DecimalMin(value = "0.0", inclusive = false, message = "Le prix du produit ne doit pas être vide et supèrieur à zéro")
-    private Double price;
+    @DecimalMin(value = "0.0", inclusive = false, message = "Le prix du produit doit être supèrieur à zéro")
+    private Double prix;
 
     @ManyToOne
     @JoinColumn(name= "categorie_id")
@@ -39,7 +39,7 @@ public class Produit {
 
     public Produit(String nom, Double price, Categorie categorie) {
         this.nom = nom;
-        this.price = price;
+        this.prix = price;
         this.categorie = categorie;
     }
 
@@ -63,12 +63,12 @@ public class Produit {
         this.nom = nom;
     }
 
-    public Double getPrice() {
-        return price;
+    public Double getPrix() {
+        return prix;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setPrix(Double prix) {
+        this.prix = prix;
     }
 
     public Categorie getCategorie() {
@@ -84,7 +84,7 @@ public class Produit {
         return "Produit{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
-                ", price=" + price +
+                ", price=" + prix +
                 ", categorie=" + categorie +
                 '}';
     }
