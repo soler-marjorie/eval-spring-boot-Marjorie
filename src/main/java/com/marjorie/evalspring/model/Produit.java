@@ -27,15 +27,20 @@ public class Produit {
     @DecimalMin(value = "0.0", inclusive = false, message = "Le prix du produit ne doit pas être vide et supèrieur à zéro")
     private Double price;
 
+    @ManyToOne
+    @JoinColumn(name= "categorie_id")
+    private Categorie categorie;
+
     /*
      * CONSTRUCTORS
      */
 
     public Produit() {}
 
-    public Produit(String nom, Double price) {
+    public Produit(String nom, Double price, Categorie categorie) {
         this.nom = nom;
         this.price = price;
+        this.categorie = categorie;
     }
 
     /*
@@ -66,15 +71,21 @@ public class Produit {
         this.price = price;
     }
 
-    /*
-     * METHODS
-     */
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+    }
+
     @Override
     public String toString() {
         return "Produit{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", price=" + price +
+                ", categorie=" + categorie +
                 '}';
     }
 }
