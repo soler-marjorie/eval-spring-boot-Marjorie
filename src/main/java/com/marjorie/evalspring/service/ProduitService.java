@@ -15,7 +15,6 @@ public class ProduitService {
     @Autowired
     private ProduitRepository produitRepository;
 
-
     //Méthode qui retourne tous les objets produit
     public Iterable<Produit> getAll(){
         if(produitRepository.count() == 0) {
